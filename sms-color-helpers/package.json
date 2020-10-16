@@ -10,6 +10,11 @@
   },
   "author": "DSMSSTHN",
   "license": "MIT",
+  "repository": {
+    "type": "Git",
+    "url": "https://github.com/smsthn/sms-ts-helpers.git",
+    "directory": "sms-color-helpers"
+  },
   "devDependencies": {
     "@types/jest": "^26.0.14",
     "jest": "^26.5.3",
