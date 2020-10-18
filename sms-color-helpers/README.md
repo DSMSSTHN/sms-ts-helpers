@@ -41,6 +41,7 @@ console.log(rgba1.toRGBString() === rgbString);//will print true
 console.log(array1.toRGBAString() === rgbaString);//will print true
 console.log(array1.toRGBString() === rgbString);//will print true
 ```
+#
 
 To instantiate a RGBA Class Object:
 
@@ -85,6 +86,8 @@ let arrayToRGBA2 = [0,0].toRGBA();
 let arrayToRGBA3 = [0,0,0].toRGBA();
 let arrayToRGBA4 = [0,0,0,1].toRGBA();
 ```
+#
+
 
 There is also a RGBA class Method and a global Function to check if a color (hexString, rgbString, rgbaString, array, json, RGBA class object) is dark based on its Lumin value, if it's less than 60 is considered dark
 
@@ -110,6 +113,8 @@ console.log(rgbaBlack.isDark);//will print true
 console.log(colorIsDark(jsonWhite));//will print false
 console.log(colorIsDark(jsonBlack));//will print true
 ```
+#
+
 
 The RGBA Class and all the global function also have an additional variable called cycleNumbers default set to false which changes whether to clamp or cycle the color values when a value outside the allowed color values[0-255] and the alpha values[0-1] are given.
 
@@ -122,7 +127,7 @@ console.log(rgb1.toString());//will print "rgba(255,244,222,0.3)"
 console.log(rgb2.toString());//will print "rgba(255,244,222,0.3)"
 console.log(rgb3.toString());//will print "rgba(255,244,222,0.3)"
 ```
-
+#
 In the previous Example because of the additional Property rgb1 === rgb3 will return false therefor to compare colors either they should be converted to string or preferably they can be compared using the "sameColor" method of an RGBA object or the static "colorEquals" Method. where both of them take any other object as a parameter(RGBA class instance, hexString, rgbaString, rgbString, array, json color). 
 
 ```typescript
