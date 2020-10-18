@@ -157,5 +157,5 @@ console.log(rgb1.sameColor(rgb1.toRGBString()))
 # License:
 
 MIT License
-
+[link to license](../LICENSE)
 the license is in the root directory of the project
