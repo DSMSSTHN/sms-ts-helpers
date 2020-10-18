@@ -3,7 +3,7 @@
 
 
 
- # [sms-color-helpers](./sms-color-helpers/README.md)
+ # [sms-color-helpers](./sms-color-helpers)
 This Project is a TS hex to rgb and rgba converter and vice versa.
 
 
