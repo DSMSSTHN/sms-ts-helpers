@@ -4,6 +4,26 @@ This Project is a TS hex to rgb and rgba converter and vice versa.
 
 The Project contains extension Method on the Array and String interfaces, global Functions and a RGBA class that can handle converting a string, a number array, a RGBA object or a Json or JS object that has color Properties (red,green,blue,alpha) to the others.
 
+
+#
+
+# Install:
+```console
+npm install sms-color-helpers --save
+```
+
+# Usage:
+
+```typescript
+//To use the RGBA Class:
+import {RGBA} from 'sms-color-helpers';
+//To only use the extensions:
+import 'sms-color-helpers';
+```
+
+#
+## Code Examples:
+
 ```typescript
 let hexString = "#7d7a45"
 console.log(hexString.hexToRGBAString());//will print rgba(125,122,69,1)

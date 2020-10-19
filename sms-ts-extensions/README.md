@@ -3,6 +3,25 @@
 
 
  #
+
+ # Install:
+
+```console
+ npm install sms-ts-extensions --save
+ ```
+
+ # Usage:
+
+ ```typescript
+ // To get the extensions:
+import 'sms-ts-extensions';
+// To get the global functions:
+import {arrNoneOrEmpty, isNone, isNotNone, arrNoneOrEmptyThenReturn, arrNoneOrEmptyThenDo} from 'sms-ts-extensions';
+ ```
+
+ #
+
+ ## Examples:
  
  # String Extension Methods:
 
