@@ -173,6 +173,86 @@ export class RGBA {
         return !!other?.toRGBA(cycleNumbers)?.sameColor(this);
     }
 
+    
+    /**
+     * sets the red of this RGBA object and returns this to enable chaining on initialization or returns a new RGBA with same values as this and new red
+     * @param alpha the new red value between 0 and 255
+     * @param returnNew whether to change the red of this object and return it or return new RGBA object with same values except red
+     */
+    withRed(red: number, returnNew: boolean = false): RGBA {
+        if (returnNew) { return new RGBA(red, this.green, this.blue, this.alpha,this.cycleNumbers); }
+        this.red = red;
+        return this;
+    }
+    /**
+     * sets the green of this RGBA object and returns this to enable chaining on initialization or returns a new RGBA with same values as this and new green
+     * @param alpha the new green value between 0 and 255
+     * @param returnNew whether to change the green of this object and return it or return new RGBA object with same values except green
+     */
+    withGreen(green: number, returnNew: boolean = false): RGBA {
+        if (returnNew) { return new RGBA(this.red, green, this.blue, this.alpha,this.cycleNumbers); }
+        this.green = green;
+        return this;
+    }
+    /**
+     * sets the blue of this RGBA object and returns this to enable chaining on initialization or returns a new RGBA with same values as this and new blue
+     * @param alpha the new blue value between 0 and 255
+     * @param returnNew whether to change the blue of this object and return it or return new RGBA object with same values except blue
+     */
+    withBlue(blue: number, returnNew: boolean = false): RGBA {
+        if (returnNew) { return new RGBA(this.red, this.green, blue, this.alpha,this.cycleNumbers); }
+        this.blue = blue;
+        return this;
+    }
+    /**
+     * sets the alpha of this RGBA object and returns this to enable chaining on initialization or returns a new RGBA with same values as this and new alpha
+     * @param alpha the new alpha value between 0 and 1
+     * @param returnNew whether to change the alpha of this object and return it or return new RGBA object with same values except alpha
+     */
+    withAlpha(alpha: number, returnNew: boolean = false): RGBA {
+        if (returnNew) { return new RGBA(this.red, this.green, this.blue, alpha,this.cycleNumbers); }
+        this.alpha = alpha;
+        return this;
+    }
+    /**
+     * darkens the color by decreasing red, green, and blue together by the given value
+     * @param darkness the value to darken by, between 0 and 255
+     * @param returnNew whether to change the values of this object and return it or return new RGBA object with new values
+     */
+    darkenBy(darkness:number, returnNew: boolean = false):RGBA{
+        if(returnNew){
+            let result =  new RGBA(this.red - darkness, this.green - darkness, this.blue - darkness,this.alpha,false);
+            result.cycleNumbers = this.cycleNumbers;
+            return result;
+        }
+        let prevCycle = this.cycleNumbers;
+        this.cycleNumbers = false
+        this.red -= darkness;
+        this.green -= darkness;
+        this.blue -= darkness;
+        this.cycleNumbers = prevCycle;
+        return this;
+    }
+    /**
+     * lightens the color by increasing red, green, and blue together by the given value
+     * @param darkness the value to lighten by, between 0 and 255
+     * @param returnNew whether to change the values of this object and return it or return new RGBA object with new values
+     */
+    lightenBy(darkness:number, returnNew: boolean = false):RGBA{
+        if(returnNew){
+            let result =  new RGBA(this.red + darkness, this.green + darkness, this.blue + darkness,this.alpha,false);
+            result.cycleNumbers = this.cycleNumbers;
+            return result;
+        }
+        let prevCycle = this.cycleNumbers;
+        this.cycleNumbers = false
+        this.red += darkness;
+        this.green += darkness;
+        this.blue += darkness;
+        this.cycleNumbers = prevCycle;
+        return this;
+    }
+
     // Private Methods:
     /**
      * this method clamps or cycles the given color number value with min 0 and max 255
@@ -183,7 +263,7 @@ export class RGBA {
         if (color === undefined || color === null || isNaN(color)) { return 0; }
         if (cycleNumbers) {
 
-            if(color < 0){return -(-color % 256) + 256;}
+            if (color < 0) { return -(-color % 256) + 256; }
             return color % 256;
         }
         return Math.max(0, Math.min(255, color));
@@ -205,7 +285,7 @@ export class RGBA {
     private fixAlpha(alpha: number, cycleNumbers: boolean = this.cycleNumbers): number {
         if (alpha === undefined || alpha === null || isNaN(alpha)) { return 1; }
         if (cycleNumbers) {
-            if(alpha < 0){return (-(-(alpha * 100000) % 100000) + 100000)/100000;}
+            if (alpha < 0) { return (-(-(alpha * 100000) % 100000) + 100000) / 100000; }
             return (alpha * 100000) % 100000 / 100000;
         }
         let result = Math.max(0, Math.min(1, alpha));

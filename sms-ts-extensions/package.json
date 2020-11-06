@@ -1,6 +1,6 @@
 {
   "name": "sms-ts-extensions",
-  "version": "0.0.1",
+  "version": "0.0.15",
   "description": "extension Methods for some of the Main interfaces in typescript",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -23,7 +23,7 @@
     "directory": "sms-ts-extensions"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.14",
+    "@types/jest": "^26.0.15",
     "jest": "^26.5.2",
     "ts-jest": "^26.4.1",
     "typescript": "^4.0.3"

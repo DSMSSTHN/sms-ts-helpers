@@ -38,6 +38,7 @@ declare global{
          * of the shape: 'rgb(red,green,blue)'
          */
         toRGBString(this:number[], cycleNumbers?:boolean):string;
+        
     }
     interface String{
         toRGBA(this:string, cycleNumbers?:boolean):RGBA;
