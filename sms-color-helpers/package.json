@@ -1,6 +1,6 @@
 {
   "name": "sms-color-helpers",
-  "version": "0.0.1",
+  "version": "0.0.15",
   "description": "some functions and extension for conversion between hex and rgb and rgba for typescript",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
